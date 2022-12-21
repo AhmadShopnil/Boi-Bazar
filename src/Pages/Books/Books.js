@@ -23,7 +23,8 @@ const Books = () => {
                     </>
                     :
                     <>
-                        <h2 className='text-3xl text-center font-bold'>No Books in this Categories</h2>
+                        {/* <h2 className='text-3xl text-center font-bold'>No Books in this Categories</h2> */}
+                        <progress className="progress w-56"></progress>
                     </>
             }
 
