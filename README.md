@@ -6,7 +6,7 @@ Boi Bazar
 ## Deployment
 
 Deployed on Firebase
-live link : https://boi-bazar-38a29.web.app
+live link : https://melodious-macaron-952c8d.netlify.app/
 
 
 ## Features

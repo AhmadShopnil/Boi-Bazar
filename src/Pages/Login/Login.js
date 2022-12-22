@@ -58,9 +58,9 @@ const Login = () => {
             <div className="hero mb-10 ">
                 <div className="hero-content  gap-20 lg:flex-row">
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl p-12 bg-base-100">
-                        <h1 className="text-5xl font-bold text-center pt-5">Login now!</h1>
+                        <h1 className="text-5xl font-bold text-center pt-5">Login now</h1>
                         {
-                            error && <p className='text-red-500 my-3'>{error}</p>
+                            error && <p className='text-red-600 my-3'>{error}</p>
                         }
                         <form onSubmit={handleSignIn} className="card-body">
 
@@ -86,7 +86,7 @@ const Login = () => {
                         </form>
 
                         <p className='text-center py-4'>Don't have any account ? <Link className='text-blue-400 font-bold' to="/signup">Register</Link></p>
-                        {/* <button onClick={handleGoogleSignIn} className="btn btn-primary">Login With Google</button> */}
+
                         <GoogleLogin></GoogleLogin>
                     </div>
                 </div>
