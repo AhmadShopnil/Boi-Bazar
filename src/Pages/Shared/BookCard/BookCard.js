@@ -6,13 +6,14 @@ import useVerify from '../../../hooks/useVerify';
 
 const BookCard = ({ book, reportItem }) => {
     const [modal, setModal] = useState(false)
-    const description = book.description
-    const shortDescription = description.slice(0, 100)
+    const [isVerify] = useVerify(book?.sellerEmail);
 
-    const [isVerify] = useVerify(book.sellerEmail)
+    // change date format
+    const date = new Date(book?.time);
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-US', options);
 
-
-
+    // report item
     const handleReportItem = () => {
         const id = book._id
         // reportItem(book._id)
@@ -22,36 +23,29 @@ const BookCard = ({ book, reportItem }) => {
                 toast.success('Report Success')
             })
             .catch(error => console.error(error))
-
     }
-
 
     const handleSetModal = () => {
         setModal(true)
     }
 
-
-
-
     return (
-        <div className="card  md:w-96 bg-base-100 shadow-xl mx-4 ">
-            <figure><img className='w-11/12 h-auto mt-8 ' src={book.photo} alt="Shoes" /></figure>
+        <div className="card  md:w-96  bg-base-100 shadow-xl mx-4 rounded-lg ">
+            <img className='mt-8 h-64 rounded-t-lg' src={book?.photo} alt="Shoes" />
             <div className="card-body">
                 <h2 className="card-title">
-                    {book.productName}
-                    <div className="badge badge-secondary">{book.status}</div>
+                    {book?.productName}
+                    <div className="badge badge-secondary">{book?.status}</div>
                 </h2>
-
-                <p>{shortDescription}</p>
-                <p className='font-semibold'>Publish Time : {book.time}</p>
-                <p className='font-semibold'>Location :  {book.location}</p>
-                <p className='font-semibold'>Seller Email :  {book.sellerEmail}</p>
-                <p className='font-semibold'>Seller Number :  {book.sellerPhoneNumber}</p>
-                <p className='font-semibold'>Original Price :  {book.originalPrice}</p>
-                <p className='font-semibold'>Used Year :  {book.usedYear}</p>
+                <p className='font-semibold'>Publish Time : {formattedDate}</p>
+                {/* <p className='font-semibold'>Location :  {book.location}</p> */}
+                {/* <p className='font-semibold'>Seller Email :  {book.sellerEmail}</p> */}
+                {/* <p className='font-semibold'>Seller Number :  {book.sellerPhoneNumber}</p> */}
+                <p className='font-semibold'>Original Price :  {book?.originalPrice}</p>
+                <p className='font-semibold'>Used Year :  {book?.usedYear}</p>
 
                 <div className='flex  items-center gap-1 '>
-                    <span className='font-semibold text-xl'>Seller Name :  {book.sellerName}
+                    <span className='font-semibold text-xl'>Seller Name :  {book?.sellerName}
                     </span>
                     {isVerify && <div className="avatar">
                         <div className="w-5 h-5 rounded-full">
@@ -61,12 +55,10 @@ const BookCard = ({ book, reportItem }) => {
                 </div>
 
                 <div className="card-actions justify-end">
-                    <div className="badge badge-outline p-4"> ${book.price}</div>
+                    <div className="badge badge-outline p-4"> ${book?.price}</div>
                     <div>
-
                         {
                             book?.status === "Sold" ?
-
                                 <>
                                     <button className="btn btn-outline btn-primary btn-sm " disabled
                                     >Stock Out</button>
@@ -76,8 +68,6 @@ const BookCard = ({ book, reportItem }) => {
                                     <label onClick={handleSetModal} className="btn btn-outline btn-primary btn-sm" htmlFor="my-modal-6" >Book Now</label>
                                 </>
                         }
-
-
 
                     </div>
                     <div className="badge badge-outline p-4"> <button onClick={handleReportItem}>Report</button></div>

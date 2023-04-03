@@ -8,10 +8,14 @@ const BestSeller = () => {
                 <img className='rounded-3xl w-full h-full' src={bestSeller} alt="" />
 
             </div>
-            <div className='grid items-center '>
-                {/* <h2 className='font-bold text-2xl'>Best Selling Author</h2> */}
-                <p className='text-2xl font-serif '><span className='text-xs '>Shopnil</span> Best Selling Author, <br /> is an experienced and knowledgeable book seller with exceptional communication skills. Shopnil is up-to-date with the latest releases and literary trends, ensuring that his books are well-organized and in good condition.</p>
-                <Link to="/bestSellerDetails" className='underline underline-offset-4 text-blue-300'>Learn More</Link>
+            <div className='grid items-center  '>
+                <div>
+                    <p className='text-lg font-serif mb-6 '>
+                        <span className='text-xs '>Mariya</span> <span className='text-2xl'>Best Selling Author,
+                        </span>
+                        <br /> is an experienced and knowledgeable book seller with exceptional communication skills. Shopnil is up-to-date with the latest releases and literary trends, ensuring that his books are well-organized and in good condition.</p>
+                    <Link to="/bestSellerDetails" className='underline underline-offset-4 text-blue-300 '>Learn More</Link>
+                </div>
             </div>
         </div>
     );
