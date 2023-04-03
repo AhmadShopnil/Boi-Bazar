@@ -6,8 +6,8 @@ import GoogleLogin from '../Shared/GoogleLogin/GoogleLogin';
 
 const Login = () => {
     const { logIn } = useContext(AuthContext)
-
     const [error, setError] = useState(null)
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -35,23 +35,17 @@ const Login = () => {
 
 
     const handleSetJwt = (email) => {
-
         fetch(`https://boi-bazar-server.vercel.app/jwt?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data.data)
                 if (data.status) {
                     localStorage.setItem('token', data.data)
-
                 }
 
             })
             .catch(error => console.log(error))
     }
-
-
-
-
 
     return (
         <div>

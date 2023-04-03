@@ -20,6 +20,8 @@ import SignUp from "../Pages/SignUp/SignUp";
 import AdminRoute from "./AdminRoute";
 import PrivateRoutes from "./PrivateRoutes";
 import SellerRoute from "./SellerRoute";
+import BestSeller from "../Pages/Home/BestSeller/BestSeller";
+import BestSellerDetails from "../Pages/Home/BestSeller/BestSellerDetails";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +33,11 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: 'login',
+                path: '/bestSellerDetails',
+                element: <BestSellerDetails></BestSellerDetails>
+            },
+            {
+                path: '/login',
                 element: <Login></Login>
             },
             {

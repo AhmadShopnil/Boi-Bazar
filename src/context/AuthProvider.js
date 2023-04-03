@@ -56,7 +56,6 @@ const AuthProvider = ({ children }) => {
 
         return updateProfile(auth.currentUser, profile)
 
-
     }
 
 
